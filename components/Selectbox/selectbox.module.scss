@@ -1,0 +1,231 @@
+$dark: #666;
+$black: #000;
+$error: red;
+$surface: #f2f2f2;
+$white: #fff;
+$font-size-base: 1rem;
+$popup-box-border-color: #dadce0;
+$popup-box-body-bg-color: #fff;
+$popup-box-body-shadow: rgb(0 0 0 / 20%);
+$borderColor: #e2e2e2;
+$borderRadius: 0.5rem;
+$hover-bg: #f3f3f3;
+
+@mixin toRem($property, $value) {
+    #{$property}: calc($value / 16) + rem;
+}
+
+.errorContainer {
+    .dropdown_toggle {
+        border-color: $error !important;
+
+        &:focus {
+            border-color: $error !important;
+        }
+
+        &:hover {
+            border-color: $error !important;
+        }
+    }
+
+    .errorMessage {
+        color: $error !important;
+        @include toRem(font-size, 14);
+        margin: 0.25rem 0 0 0;
+    }
+
+    &:hover {
+        .dropdown_toggle {
+            border-color: #222 !important;
+
+            &:focus {
+                border-color: #222 !important;
+            }
+
+            &:hover {
+                border-color: #222 !important;
+            }
+        }
+    }
+}
+
+.dropdown_wrapper {
+    position: relative;
+}
+
+.dropdown_toggle {
+    width: 100%;
+    height: 3.75rem;
+    color: #222 !important;
+    background-color: #fff !important;
+    border: solid 1px black !important;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: flex-start;
+    transition: all 0.2s;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+
+    &.errorState {
+        border-color: red !important;
+    }
+}
+
+
+.dropdown_toggle::after {
+    display: none !important;
+}
+
+.menu_wrapper {
+    width: 100%;
+    max-height: 180px;
+    overflow: auto;
+    padding: 0 0 10px !important;
+    position: absolute;
+    inset: 0px auto auto 0px;
+    margin: 0px;
+    top: 99%;
+    z-index: 1000;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid grey;
+    height: fit-content;
+}
+
+.overlay_list {
+    position: fixed !important;
+    transform: none !important;
+    height: 100vh;
+    width: 100vw;
+    left: 0 !important;
+    top: 0 !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    max-height: none;
+    background: transparent !important;
+    backdrop-filter: blur(5px);
+
+    .list_wrapper {
+        background: white;
+        max-height: 400px;
+        overflow: auto;
+        height: 100%;
+    }
+}
+
+.dropdown_menu_item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 10px;
+
+    &.selectedItem {
+        background: rgb(104, 104, 139);
+    }
+}
+
+.upArrow {
+    transform: rotate(180deg);
+}
+
+.floating_label {
+    position: absolute;
+    top: 0.5rem;
+    font-size: 0.85rem;
+    color: $dark;
+    font-family: "Roboto";
+}
+
+.floating_label_float {
+    font-size: 0.5rem;
+    color: $dark;
+    font-family: "Roboto";
+}
+
+.search {
+    width: calc(100% - 1rem);
+    border-radius: 1.65625rem;
+    border: none;
+    padding: 0.625rem;
+    background-color: #eaebed;
+    margin: 1rem auto 0.5rem;
+
+    &~a {
+        @include toRem(padding-left, 60);
+    }
+}
+
+.searchBox_dropDown {
+    position: sticky;
+    top: 0;
+    padding: 0.625rem 0.25rem 0;
+    z-index: 1;
+    background-color: #fff;
+}
+
+.dropDownArrow {
+    position: absolute;
+    right: 17px;
+    display: block;
+    transition: all 0.3s;
+
+    &.upArrow {
+        transform: rotate(180deg);
+    }
+
+    i {
+        font-size: 0.7rem;
+        color: $dark;
+
+        &:before {
+            vertical-align: unset;
+        }
+    }
+}
+
+.inlineSearch {
+    border: 0;
+    width: 100%;
+    background: transparent;
+    position: relative;
+    z-index: 99;
+}
+
+.inlineInputLabel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 1rem 1rem;
+    pointer-events: none;
+    border: 1px solid transparent;
+    transform-origin: 0 0;
+    font-weight: 400;
+    transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+    font-family: "Roboto";
+    font-weight: 400;
+    color: #6b6b6b;
+}
+
+.selected_list_wrapper {
+    span {
+        background: #d4c2c2;
+        margin-right: 10px;
+        padding: 2px;
+        position: relative;
+        border-radius: 5px;
+
+        &:hover {
+            &:after {
+                content: "x";
+                position: absolute;
+                top: -12px;
+                right: -4px;
+
+            }
+        }
+    }
+}

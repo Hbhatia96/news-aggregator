@@ -1,0 +1,42 @@
+
+const source = ["New York Times", "The Guardian", "News API"];
+
+const category = [
+    "Business",
+    "Cars",
+    "Culture",
+    "Dining",
+    "Editorial",
+    "Education",
+    "Energy",
+    "Entrepreneurs",
+    "Environment",
+    "Escapes",
+    "Fashion",
+    "Financial",
+    "Flight",
+    "Food",
+    "Foreign",
+    "Health",
+    "Home",
+    "Jobs",
+    "Letters",
+    "Magazine",
+    "Media",
+    "Metro",
+    "Movies",
+    "Opinion",
+    "Outlook",
+    "Play",
+    "Politics",
+    "Regionals",
+    "Retail",
+    "Retirement",
+    "Science",
+    "Small Business",
+    "Society",
+    "Sports",
+    "Style",
+  ];
+
+  export {category, source}
